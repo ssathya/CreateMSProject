@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppModel\Project.cs" />
+    <Compile Include="AppModel\ProjectResources.cs" />
     <Compile Include="AppModel\ProjectTask.cs" />
     <Compile Include="AppModel\Resource.cs" />
     <Compile Include="ThrowAway\ProjectAssignmentTimephasedData.cs" />

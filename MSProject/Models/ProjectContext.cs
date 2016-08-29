@@ -1,9 +1,5 @@
 ﻿using Models.AppModel;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace MSProject.Models
 {
@@ -20,6 +16,7 @@ namespace MSProject.Models
         {
         }
 
-        public System.Data.Entity.DbSet<Project> Projects { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Resource> Resources { get; set; }
     }
 }
