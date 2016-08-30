@@ -7,7 +7,7 @@ namespace Models.AppModel
     {
         public int Id { get; set; }
 
-        [Required, StringLength(30)]
+        [Required, StringLength(30), Display(Name = "Project Name")]
         public string Name { get; set; }
 
         [Required, StringLength(50)]

@@ -18,5 +18,8 @@ namespace MSProject.Models
 
         public DbSet<Project> Projects { get; set; }
         public DbSet<Resource> Resources { get; set; }
+        public DbSet<ProjectTask> ProjectTasks { get; set; }
+
+        public System.Data.Entity.DbSet<ProjectResources> ProjectResources { get; set; }
     }
 }

@@ -26,17 +26,19 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li class="dropdown">
                         <!--
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">App <b class="create"></b></a>
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-    <span class="caret"></span></button>
-                        -->
-                        <button  class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">App <b class="create"></b></a>
+                                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                        <span class="caret"></span></button>
+                                            -->
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                             Application
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Projects", "Index", "Projects")</li>
                             <li>@Html.ActionLink("Resources", "Index", "Resources")</li>
+                            <li>@Html.ActionLink("Project Tasks", "Index", "ProjectTasks")</li>
+                            <li>@Html.ActionLink("Task Resources", "Index", "ProjectResources")</li>
                         </ul>
                     </li>
                 </ul>
