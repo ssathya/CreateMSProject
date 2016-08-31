@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
+﻿using Models.AppModel;
 using MSProject.Models;
-using Models.AppModel;
+using System.Data.Entity;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MSProject.Controllers
 {
     public class ProjectTasksController : Controller
     {
-        private ProjectContext db = new ProjectContext();
+        private readonly ProjectContext db = new ProjectContext();
 
         // GET: ProjectTasks
         public async Task<ActionResult> Index()
@@ -30,7 +25,7 @@ namespace MSProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProjectTask projectTask = await db.ProjectTasks.FindAsync(id);
+            var projectTask = await db.ProjectTasks.FindAsync(id);
             if (projectTask == null)
             {
                 return HttpNotFound();
@@ -46,11 +41,13 @@ namespace MSProject.Controllers
         }
 
         // POST: ProjectTasks/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,ProjectId,Name,OutlineNumber,OutlineLevel,Duration,ActualCost,Cost")] ProjectTask projectTask)
+        public async Task<ActionResult> Create(
+            [Bind(Include = "Id,ProjectId,Name,OutlineNumber,OutlineLevel,Duration,ActualCost,Cost")] ProjectTask
+                projectTask)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +67,7 @@ namespace MSProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProjectTask projectTask = await db.ProjectTasks.FindAsync(id);
+            var projectTask = await db.ProjectTasks.FindAsync(id);
             if (projectTask == null)
             {
                 return HttpNotFound();
@@ -80,11 +77,13 @@ namespace MSProject.Controllers
         }
 
         // POST: ProjectTasks/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,ProjectId,Name,OutlineNumber,OutlineLevel,Duration,ActualCost,Cost")] ProjectTask projectTask)
+        public async Task<ActionResult> Edit(
+            [Bind(Include = "Id,ProjectId,Name,OutlineNumber,OutlineLevel,Duration,ActualCost,Cost")] ProjectTask
+                projectTask)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +102,7 @@ namespace MSProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProjectTask projectTask = await db.ProjectTasks.FindAsync(id);
+            var projectTask = await db.ProjectTasks.FindAsync(id);
             if (projectTask == null)
             {
                 return HttpNotFound();
@@ -116,7 +115,7 @@ namespace MSProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            ProjectTask projectTask = await db.ProjectTasks.FindAsync(id);
+            var projectTask = await db.ProjectTasks.FindAsync(id);
             db.ProjectTasks.Remove(projectTask);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

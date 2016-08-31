@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Models.AppModel.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>Select Project</h2>
+@foreach (var item in Model)
+{
+    @Html.DisplayFor(modelItem => item.Name)<br />
+
+}
+
+@using (Html.BeginForm("Index", "SelectProject", FormMethod.Post))
+{
+    var l1 = Model.Select(m => new SelectListItem() { Value = m.Id.ToString(), Text = m.Name }).ToList();
+    @Html.DropDownList("projectId", l1, "Select a project", new { @onchange = "this.form.submit();" })
+
+}
+
+<br /><br />
+<span>@ViewBag.SelectedProject</span>

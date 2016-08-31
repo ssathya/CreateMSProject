@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace MSProject.Models
 {
-    public class ProjectContext : DbContext
+    public class ProjectContext : DbContext, IProjectContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         //
@@ -16,10 +16,9 @@ namespace MSProject.Models
         {
         }
 
+        public DbSet<ProjectResources> ProjectResources { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<ProjectTask> ProjectTasks { get; set; }
-
-        public System.Data.Entity.DbSet<ProjectResources> ProjectResources { get; set; }
     }
 }
