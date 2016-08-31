@@ -24,10 +24,7 @@
             @Html.DisplayNameFor(model => model.OutlineLevel)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Start)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Finish)
+            @Html.DisplayNameFor(model => model.Duration)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ActualCost)
@@ -35,7 +32,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Cost)
         </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
     @foreach (var item in Model)
@@ -54,10 +51,7 @@
                 @Html.DisplayFor(modelItem => item.OutlineLevel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Start)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Finish)
+                @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ActualCost)

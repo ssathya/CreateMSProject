@@ -50,7 +50,7 @@ namespace MSProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,ProjectId,Name,OutlineNumber,OutlineLevel,Start,Finish,ActualCost,Cost")] ProjectTask projectTask)
+        public async Task<ActionResult> Create([Bind(Include = "Id,ProjectId,Name,OutlineNumber,OutlineLevel,Duration,ActualCost,Cost")] ProjectTask projectTask)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace MSProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,ProjectId,Name,OutlineNumber,OutlineLevel,Start,Finish,ActualCost,Cost")] ProjectTask projectTask)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,ProjectId,Name,OutlineNumber,OutlineLevel,Duration,ActualCost,Cost")] ProjectTask projectTask)
         {
             if (ModelState.IsValid)
             {

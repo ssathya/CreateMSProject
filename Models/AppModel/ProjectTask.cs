@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models.AppModel
@@ -20,8 +19,8 @@ namespace Models.AppModel
         public virtual Project Project { get; set; }
 
         [Required(ErrorMessage = "Task needs a name"),
-            StringLength(30),
-            Display(Name = "Task name"),
+         StringLength(30),
+         Display(Name = "Task name"),
          MinLength(3, ErrorMessage = "Task name needs to be at least 3 char. long")]
         public string Name { get; set; }
 
@@ -31,8 +30,9 @@ namespace Models.AppModel
         [Display(Name = "Child level")]
         public int? OutlineLevel { get; set; }
 
-        public DateTime? Start { get; set; }
-        public DateTime? Finish { get; set; }
+        [Display(Name = "Project Duration"), StringLength(8), MinLength(2)]
+        public string Duration { get; set; }
+
         public List<int> Sucessors { get; set; }
         public List<int> Predecessors { get; set; }
 
